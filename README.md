@@ -1,6 +1,6 @@
 # STARTER_lab01
 
-Starter code for lab01 for UCSB CS56 W18
+Starter code for [lab01](https://ucsb-cs56-w18.github.io/lab/lab01/) for UCSB CS56 W18
 
 You should edit this README.md file to include a link to your javadoc instead of this javadoc:
 
