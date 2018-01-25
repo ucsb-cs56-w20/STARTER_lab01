@@ -1,5 +1,4 @@
 <project>
-
   
   <path id="project.class.path"> 
     <pathelement location="build"/>
@@ -17,13 +16,13 @@
   </target>
 
   <target name="clean" description="clean up the project">
-    <delete>
+    <delete quiet="true">
       <fileset dir="build" includes="*.class"/>
-      <fileset dir="build" includes="*.jar"/>	
+      <fileset dir="build" includes="*.jar"/>
+      <fileset dir="docs" includes="**/*" />
     </delete>
   </target>
 
-  
   <target name="run" description="run the main">
     <java classname="Rational" classpath="build"/>
   </target>
@@ -48,23 +47,20 @@
       <formatter type="brief" usefile="false" />
     </junit>
   </target>
-
-  <property name="javadoc_absolute_path" location="javadoc"/>
-
+  
   <target name="javadoc" depends="compile" description="generate javadoc">
-    <delete>
-      <fileset dir="javadoc" />
+    <delete quiet="true">
+      <fileset dir="docs" includes="**/*" />      
     </delete>
-    <javadoc destdir="javadoc">
+    <mkdir dir="docs" />
+    <mkdir dir="docs/javadoc" />
+    <javadoc destdir="docs/javadoc">
       <fileset dir="src" >
 	<include name="*.java"/>
       </fileset>
       <classpath refid="project.class.path" />
       <link href="http://docs.oracle.com/javase/8/docs/api/" />          
     </javadoc>
-    <echo>
-      javadoc written to file://${javadoc_absolute_path}/index.html
-    </echo> 
   </target>
   
 </project>
